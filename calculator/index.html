@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div ng-controller="ContactListCtrl as ctrl">
+        <ul>
+            <li ng-repeat="contact in ctrl.contacts">
+                <span>{{contact.id}}</span>
+                <span ng-if="ctrl.showNames">{{contact.name}}</span>
+                <button ng-click="ctrl.remove(contact, $index)">Delete</button>
+            </li>
+        </ul>
+
+        <input ng-model="ctrl.name" />
+        <button ng-click="ctrl.add()">Add</button>
+
+        <div>
+            <button ng-click="ctrl.toggleNames()">Toggle Names</button>
+            <button ng-click="ctrl.sortByName()">Sort By Name</button>
+        </div>
+    </div>
+
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+    <script src="ContactListCtrl.js"></script>
+</body>
+</html>
