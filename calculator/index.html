@@ -4,27 +4,40 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-    <div ng-controller="ContactListCtrl as ctrl">
-        <ul>
-            <li ng-repeat="contact in ctrl.contacts">
-                <span>{{contact.id}}</span>
-                <span ng-if="ctrl.showNames">{{contact.name}}</span>
-                <button ng-click="ctrl.remove(contact, $index)">Delete</button>
-            </li>
-        </ul>
+<br>
 
-        <input ng-model="ctrl.name" />
-        <button ng-click="ctrl.add()">Add</button>
+<div ng-controller="CalculatorCtrl as ctrl">
+    <table>
+        <tr>
+            <td colspan="4"><input type="text" ng-model="ctrl.result"/></td>
+        </tr>
+        <tr>
+            <td ng-repeat="num in [7,8,9]"><input type="button" value="{{num}}" ng-click="ctrl.appendNumber(num)"/></td>
+            <td><input type="button" value="+" ng-click="ctrl.chooseOperand('+')"/></td>
+        </tr>
+        <tr>
+            <td ng-repeat="num in [4,5,6]"><input type="button" value="{{num}}" ng-click="ctrl.appendNumber(num)"/></td>
+            <td><input type="button" value="-" ng-click="ctrl.chooseOperand('-')"/></td>
+        </tr>
+        <tr>
+            <td ng-repeat="num in [1,2,3]"><input type="button" value="{{num}}" ng-click="ctrl.appendNumber(num)"/></td>
+            <td><input type="button" value="=" ng-click="ctrl.showResult()"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td><input type="button" value="0"/></td>
+            <td><input type="button" value="C" ng-click="ctrl.reset()"/></td>
+        </tr>
 
-        <div>
-            <button ng-click="ctrl.toggleNames()">Toggle Names</button>
-            <button ng-click="ctrl.sortByName()">Sort By Name</button>
-        </div>
-    </div>
+    </table>
+</div>
 
-    <script src="angular.js"></script>
-    <script src="app.js"></script>
-    <script src="ContactListCtrl.js"></script>
+</br>
+
+<script src="angular.js"></script>
+<script src="app.js"></script>
+<script src="ContactListCtrl.js"></script>
+<script src="CalculatorCtrl.js"></script>
 </body>
 </html>
